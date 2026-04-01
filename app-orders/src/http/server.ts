@@ -1,5 +1,7 @@
+import "@opentelemetry/auto-instrumentations-node/register";
 import { fastify } from "fastify";
 import { fastifyCors } from "@fastify/cors";
+import { trace } from "@opentelemetry/api";
 import { z } from "zod";
 import {
   serializerCompiler,
@@ -9,7 +11,9 @@ import {
 import { db } from "../db/client.ts";
 import { schema } from "../db/schema/index.ts";
 import { randomUUID } from "node:crypto";
+import { setTimeout } from "node:timers/promises";
 import { dispatchOrderCreated } from "../broker/messages/order-created.ts";
+import { tracer } from "../tracer/tracer.ts";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -44,6 +48,16 @@ app.post(
         amount,
       })
       .returning();
+
+    const span = tracer.startSpan("algo não está certo");
+
+    span.setAttribute("teste", "Hello World");
+
+    await setTimeout(2000);
+
+    span.end();
+
+    trace.getActiveSpan()?.setAttribute("order_id", order.id);
 
     dispatchOrderCreated({
       orderId: order.id,

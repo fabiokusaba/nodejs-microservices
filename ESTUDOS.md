@@ -83,3 +83,7 @@ aconteceram nele mesmo, o que os outros serviços vão fazer com esse evento tan
 - Padrão Publish/Subscribe: você publica mensagens no RabbitMQ, a partir desse momento o RabbitMQ guarda essa mensagem em um banco de dados
 depois em algum momento a minha aplicação que deve receber essas mensagens pode se inscrever para receber essas mensagens, e aí ele vai lá
 e pega todas as mensagens que estão dentro da minha fila.
+- O OpenTelemetry é basicamente um software que estou rodando junto com a minha aplicação e ele se integra as bibliotecas que estou
+instalando no meu projeto. Ele tem algumas instrumentações que são automáticas, isso quer dizer que se você estiver usando qualquer uma
+dessas bibliotecas por padrão ele vai fazer o tracing automático, caso você esteja utilizando alguma biblioteca que não seja padrão e você
+queira fazer o monitoramento na execução daquela lib você vai ter que instalar um tracing a parte.
