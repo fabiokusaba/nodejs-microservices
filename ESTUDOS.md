@@ -87,3 +87,8 @@ e pega todas as mensagens que estão dentro da minha fila.
 instalando no meu projeto. Ele tem algumas instrumentações que são automáticas, isso quer dizer que se você estiver usando qualquer uma
 dessas bibliotecas por padrão ele vai fazer o tracing automático, caso você esteja utilizando alguma biblioteca que não seja padrão e você
 queira fazer o monitoramento na execução daquela lib você vai ter que instalar um tracing a parte.
+
+###
+
+- IaC (Infraestrutura como Código) -> Terraform e Pulumi são aplicações que permitem a gente criar recursos dentro da nossa infraestrutura
+e conectar esses recursos de uma maneira que com um comando a gente consegue mudar a infra toda sem mexer em nada do painel.
